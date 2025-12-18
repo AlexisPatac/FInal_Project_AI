@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My AI Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="navbar">
+        <div class="logo" style="margin-right: 40px;">My<span>Portfolio</span></div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section id="home" class="section hero">
+          <div class="hero-text">
+            <h1>Hi, I'm <span>Alexis Patac</span></h1>
+            <p>
+              A Front-End Developer who specializes in building responsive,
+              user-friendly web interfaces with clean design and smooth user
+              experiences.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn primary">View Projects</a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="badge">AI Enthusiast</div>
+            <div class="metrics">
+              <div>
+                <span class="metric-number">3+</span>
+                <span class="metric-label">Projects</span>
+              </div>
+              <div>
+                <span class="metric-number">2</span>
+                <span class="metric-label">AI Tools</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="section">
+          <h2>About Me</h2>
+          <p>
+            I'm a Front-End Developer who enjoys turning ideas into interactive,
+            accessible, and visually appealing websites using modern web
+            technologies. I focus on creating clean, responsive interfaces and
+            smooth user experiences that feel intuitive and engaging.
+          </p>
+          <p>
+            I'm always eager to learn, improve my skills, and build products
+            that are both functional and delightful to use.
+          </p>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>Project 1: AI Chatbot</h3>
+              <p>
+                A custom chatbot integrated into this portfolio using a Python
+                backend and Google's Gemini API to answer questions about my work and
+                skills.
+              </p>
+            </article>
+            <article class="project-card">
+              <h3>Project 2: Responsive Landing Page</h3>
+              <p>
+                A modern, mobile-friendly landing page designed for a product or
+                service, focusing on layout, typography, and user experience.
+              </p>
+              <p><strong>Technologies:</strong> HTML, CSS (Flexbox / Grid)</p>
+              <p>
+                <strong>What it solves:</strong> Shows how to create visually
+                appealing layouts that work across different screen sizes.
+              </p>
+            </article>
+            <article class="project-card">
+              <h3>Project 3: Weather App</h3>
+              <p>
+                A weather application that fetches real-time weather data based
+                on user input and displays current conditions.
+              </p>
+              <p>
+                <strong>Technologies:</strong> HTML, CSS, JavaScript, Public API
+              </p>
+              <p>
+                <strong>What it solves:</strong> Demonstrates API integration
+                and dynamic data rendering in the browser.
+              </p>
+            </article>
+            <article class="project-card">
+              <h3>Project 4: Login &amp; Registration UI (Frontend Only)</h3>
+              <p>
+                A front-end design for a login and registration system with form
+                validation and responsive layout.
+              </p>
+              <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+              <p>
+                <strong>What it solves:</strong> Practices form handling,
+                validation, and UI consistency.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" class="section">
+          <h2>Contact</h2>
+          <p>
+            Feel free to reach out for collaboration, questions, or feedback.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nicealexis.patac@gmail.com" target="_blank" rel="noopener noreferrer">nicealexis.patac@gmail.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/AlexisPatac" target="_blank" rel="noopener noreferrer">github.com/AlexisPatac</a></li>
+          </ul>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Alexis Patac. All rights reserved.</span>
+      </footer>
+    </div>
+
+    <!-- Floating Chat Bubble -->
+    <button class="chat-bubble" id="chatBubble" aria-label="Open chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+
+    <!-- Floating Chat Panel -->
+    <div class="floating-chat-panel" id="floatingChatPanel">
+      <div class="chat-panel-header">
+        <h3>Chat with my AI Assistant</h3>
+        <button class="close-chat" id="closeChat" aria-label="Close chat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Gemini-powered chat panel -->
+      <div class="chat-panel">
+        <div class="chat-window" id="chatWindow">
+          <div class="message bot">
+            <div class="bubble">
+              Hi! I'm your AI assistant powered by Gemini. Ask anything about me and my projects.
+            </div>
+          </div>
+        </div>
+        <form class="chat-input-row" id="chatForm">
+          <input
+            type="text"
+            id="chatInput"
+            name="question"
+            placeholder="Type your question..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="btn primary">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
+

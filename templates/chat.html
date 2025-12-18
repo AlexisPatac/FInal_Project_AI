@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Response</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      body {
+        padding: 2rem 1.5rem;
+      }
+      .chat-result {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .chat-result h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+      .qa-block {
+        margin-bottom: 1.5rem;
+      }
+      .qa-label {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+      .qa-content {
+        padding: 0.75rem 1rem;
+        border-radius: 0.9rem;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: radial-gradient(circle at top, #0f172a, #020617 70%);
+        white-space: pre-wrap;
+      }
+      .back-link {
+        display: inline-flex;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-result">
+      <h1>Chat Result</h1>
+      <div class="qa-block">
+        <div class="qa-label">Your question:</div>
+        <div class="qa-content">{{ question }}</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-label">AI answer:</div>
+        <div class="qa-content">{{ answer }}</div>
+      </div>
+      <a class="back-link" href="/">← Back to portfolio</a>
+    </div>
+  </body>
+  </html>
+
+
+
